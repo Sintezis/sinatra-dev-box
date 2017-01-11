@@ -12,7 +12,7 @@ $script = <<SCRIPT
   sudo apt-get -y install git
 
   # install ruby developer packages   
-  sudo apt-get -y install make build-essential libcurl4-openssl-dev libmysqlclient-dev libreadline-dev libssl-dev libxml2-dev libxslt-dev python-dev zlib1g-dev libpq-dev 
+  sudo apt-get -y install make build-essential libcurl4-openssl-dev libmysqlclient-dev libreadline-dev libssl-dev libxml2-dev libxslt-dev python-dev zlib1g-dev 
 
   # install rbenv and ruby-build
   sudo -u vagrant -H git clone git://github.com/rbenv/rbenv.git /home/vagrant/.rbenv
@@ -73,12 +73,12 @@ Vagrant.configure(2) do |config|
     exit
   end
 
-  config.vm.define 'Sinatra Box' do |node|
+  config.vm.define 'Sintezis Web Stack' do |node|
     node.vm.box = "ubuntu/trusty64"
-    node.vm.network :private_network, ip: "192.168.100.101"
+    node.vm.network :private_network, ip: "192.168.100.102"
     node.vm.synced_folder "./", "/var/www/app/", :mount_options => ["dmode=777", "fmode=664"]
-    node.vm.hostname = 'sinatra-box.dev'
-    node.hostmanager.aliases = %w(www.sinatra-box.dev sinatra-box.dev)
+    node.vm.hostname = 'sintezis-web.dev'
+    node.hostmanager.aliases = %w(www.sintezis-web.dev sintezis-web.dev)
     node.vm.provision :shell, inline: $script
     node.vm.provision :shell, inline: $run_thin, run: 'always'
   end
