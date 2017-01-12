@@ -75,8 +75,8 @@ Vagrant.configure(2) do |config|
 
   config.vm.define 'Sintezis Web Stack' do |node|
     node.vm.box = "ubuntu/trusty64"
-    node.vm.network :private_network, ip: "192.168.100.102"
     node.vm.synced_folder "./", "/var/www/app/", :mount_options => ["dmode=777", "fmode=664"]
+    node.vm.network :private_network, ip: "192.168.100.102"
     node.vm.hostname = 'sintezis-web.dev'
     node.hostmanager.aliases = %w(www.sintezis-web.dev sintezis-web.dev)
     node.vm.provision :shell, inline: $script
