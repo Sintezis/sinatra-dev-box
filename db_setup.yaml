@@ -12,7 +12,7 @@
       with_items:
         - postgresql
         - python-psycopg2
-        - postgresql-dev-9.3
+        - postgresql-server-dev-9.3
         - libpq-dev
 
     - name: postgresql | create database
