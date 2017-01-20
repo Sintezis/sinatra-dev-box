@@ -45,24 +45,24 @@ Controller for loading angular index view and associated js libraries
 ## Architecture & folders
 
 ```
-	api/
-	models/
-	public/
-	web/
-	Gemfile
-	Vagrantfile
-	config.ru 
-	db_setup.yaml
+api/
+models/
+public/
+web/
+Gemfile
+Vagrantfile
+config.ru 
+db_setup.yaml
 ```
 
 ### api/
 
 ```
-	api/
-		controllers/
-			- records.rb
-		helpers/
-			- api_request.rb
+api/
+	controllers/
+		- records.rb
+	helpers/
+		- api_request.rb
 ```
 
 Application module containing `records.rb` controller used for handling all CRUD requests as defined in [api module](http://github.com/Sintezis/api-module) read me. Module also includes `api_request` helper.
@@ -70,22 +70,22 @@ Application module containing `records.rb` controller used for handling all CRUD
 ### web/
 
 ```
-	web/
-		controllers/
-			- angular.rb
-		helpers/
+web/
+	controllers/
+		- angular.rb
+	helpers/
 ```
 
 
 ### public/
 
 ```
-	public/
-		css/
-		js/
-		img/
-		lib/
-		- index.html
+public/
+	css/
+	js/
+	img/
+	lib/
+	- index.html
 ```
 
 ### models/
