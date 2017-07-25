@@ -7,13 +7,12 @@ require 'sinatra/contrib'
 require 'data_mapper'
 require 'json'
 
+#load main controller
+Dir[File.dirname(__FILE__) + '/main.rb'].each {|file| require file}
+
 #load api module
 Dir[File.dirname(__FILE__) + '/api/helpers/*.rb'].each {|file| require file}
 Dir[File.dirname(__FILE__) + '/api/controllers/*.rb'].each {|file| require file}
-
-#load web module
-Dir[File.dirname(__FILE__) + '/web/helpers/*.rb'].each {|file| require file}
-Dir[File.dirname(__FILE__) + '/web/controllers/*.rb'].each {|file| require file}
 
 #load models
 Dir[File.dirname(__FILE__) + '/models/*.rb'].each {|file| require file}
@@ -27,5 +26,5 @@ end
 DataMapper.finalize.auto_upgrade!
 
 #map controllers
+map('/') {run MainController}
 map('/api/records') {run RecordsController}
-map('/') {run WebController}

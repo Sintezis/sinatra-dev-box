@@ -45,15 +45,8 @@ $script = <<SCRIPT
   apt-get update
   apt-get install ansible -y
 
-  # nvaigate to app root dir
-  cd `dirname $0`
-  if [ ! -f db_setup.yml ]; then
-      cd /var/www/app
-      echo $0
-  fi
-
   # run ansible playbook for db setup
-  ansible-playbook db_setup.yaml --connection=local -i localhost,  
+  ansible-playbook /var/www/app/provision/db_setup.yaml --connection=local -i localhost,  
 SCRIPT
 
 $run_thin = <<SCRIPT
